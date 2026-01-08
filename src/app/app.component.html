@@ -1,0 +1,39 @@
+<div class="app-shell">
+  <app-spinner></app-spinner>
+
+  <header class="app-header" *ngIf="showLayout">
+    <div class="brand">
+      <div class="brand-icon">MU</div>
+      <div>
+        <p class="eyebrow">Plataforma de Medidores electricos</p>
+        <h1>{{ title }}</h1>
+      </div>
+    </div>
+    <nav class="app-nav">
+      <a routerLink="/meters-map" routerLinkActive="active">Mapa de medidores</a>
+
+      <div class="user-menu-container">
+        <button class="user-menu-btn" (click)="toggleUserMenu()">
+          <span class="user-icon">👤</span>
+          <span class="user-arrow">▼</span>
+        </button>
+
+        <div class="user-dropdown" *ngIf="showUserMenu" (click)="closeUserMenu()">
+          <a routerLink="/user-profile" class="dropdown-item">
+            <span class="dropdown-icon">👤</span>
+            Mi perfil
+          </a>
+          <div class="dropdown-divider"></div>
+          <button class="dropdown-item logout" (click)="logout()">
+            <span class="dropdown-icon">🚪</span>
+            Cerrar sesión
+          </button>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main class="app-content" [class.no-header]="!showLayout">
+    <router-outlet></router-outlet>
+  </main>
+</div>

@@ -1,0 +1,16 @@
+{
+  "/identity": {
+    "target": "https://medi-up-identity.onrender.com",
+    "secure": true,
+    "changeOrigin": true,
+    "logLevel": "info",
+    "pathRewrite": { "^/identity": "" }
+  },
+  "/backoffice": {
+    "target": "https://mediup-backend-backoffice.onrender.com",
+    "secure": true,
+    "changeOrigin": true,
+    "logLevel": "info",
+    "pathRewrite": { "^/backoffice": "" }
+  }
+}

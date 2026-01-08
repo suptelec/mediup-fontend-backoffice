@@ -1,0 +1,16 @@
+<div class="modal-overlay" *ngIf="isOpen$ | async" (click)="close()">
+  <div class="modal" (click)="$event.stopPropagation()">
+    <div class="modal-header">
+      <ng-content select="app-modal-header"></ng-content>
+      <button class="close-btn" (click)="close()" aria-label="Close">&times;</button>
+    </div>
+
+    <div class="modal-body">
+      <ng-content select="app-modal-body"></ng-content>
+    </div>
+
+    <div class="modal-footer">
+      <ng-content select="app-modal-footer"></ng-content>
+    </div>
+  </div>
+</div>

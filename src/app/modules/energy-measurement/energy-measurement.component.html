@@ -1,0 +1,27 @@
+<div class="energy-measurement">
+  <h2>Mediciones de Energía</h2>
+  <table class="measurements-table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Usuario</th>
+        <th>Medidor</th>
+        <th>Fecha de Medición</th>
+        <th>Status</th>
+        <th>Contador</th>
+        <th>Eventos</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let m of measurements">
+        <td>{{ m.id }}</td>
+        <td>{{ m.username }}</td>
+        <td>{{ m.meter }}</td>
+        <td>{{ m.measurementDate }}</td>
+        <td>{{ m.integrationStatus }}</td>
+        <td>{{ m.dataCount }}</td>
+        <td>{{ m.eventsCount }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

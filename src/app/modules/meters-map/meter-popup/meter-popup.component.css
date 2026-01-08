@@ -1,0 +1,13 @@
+.meter-popup { font-size: 13px; line-height: 1.3; }
+.meter-popup strong { color: #222; }
+
+.meter-popup-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 10px;
+  flex-wrap: wrap;
+}
+
+.action-btn:hover {
+  background: #063cb1;
+}

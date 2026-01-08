@@ -1,0 +1,35 @@
+<h2 mat-dialog-title>Medidor {{ data.meter.codigo }}</h2>
+<mat-dialog-content>
+  <div *ngIf="loading">Cargando...</div>
+  <div *ngIf="error" class="error">{{ error }}</div>
+
+  <table mat-table *ngIf="result && result.length" [dataSource]="result">
+    <ng-container matColumnDef="occurredAt">
+      <th mat-header-cell *matHeaderCellDef>Fecha de mediciones</th>
+      <td mat-cell *matCellDef="let element">{{ element.MupEnergymeasurementevents[0]?.OccurredAt | date:'medium' }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="integrationStatus">
+      <th mat-header-cell *matHeaderCellDef>Estado</th>
+      <td mat-cell *matCellDef="let element">{{ element.IntegrationStatus }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="urlZip">
+      <th mat-header-cell *matHeaderCellDef>Zip</th>
+      <td mat-cell *matCellDef="let element"><a style="color: goldenrod;" target="_blank" href="{{ element.UrlZip }}"><mat-icon>folder_zip</mat-icon></a></td>
+    </ng-container>
+
+    <ng-container matColumnDef="urlCapture">
+      <th mat-header-cell *matHeaderCellDef>Captura</th>
+      <td mat-cell *matCellDef="let element"><a style="color: brown;" target="_blank" href="{{ element.UrlCapture }}"><mat-icon>image</mat-icon></a></td>
+    </ng-container>        
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+  <div *ngIf="result && !result.length">No se encontraron mediciones.</div>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button class="action-btn" (click)="close()">Cerrar</button>
+</mat-dialog-actions>

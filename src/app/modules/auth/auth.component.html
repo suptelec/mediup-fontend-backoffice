@@ -1,0 +1,63 @@
+<section class="auth-wrapper">
+  <div class="brand-panel">
+    <div class="brand-mark">MU</div>
+    <div>
+      <p class="eyebrow">Plataforma de medidores</p>
+      <h1>Medidores Eléctricos</h1>
+      <p class="lead">Inicia sesión para gestionar medidores, métricas y reportes en un solo lugar.</p>
+      <ul>
+        <li>Acceso seguro con recordatorio de sesión.</li>
+        <li>Visualiza indicadores clave y reportes de consumo.</li>
+        <li>Organiza la carga de lecturas y documentación.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="form-panel">
+    <div class="panel-header">
+      <p class="eyebrow">Bienvenido</p>
+      <h2>Ingreso a la cuenta</h2>
+      <p class="muted">Usa tus credenciales para continuar en Medidores Eléctricos.</p>
+    </div>
+
+    <form [formGroup]="loginForm" (ngSubmit)="submit()" novalidate>
+      <label class="field">
+        <span>Correo electrónico</span>
+        <div class="password-row">
+          <input formControlName="username" type="email" placeholder="ej. usuario@mediup.com"    />
+          
+        </div>
+        <small *ngIf="username?.invalid && username?.touched" class="error">
+          Ingresa un correo válido.
+        </small>
+      </label>
+
+      <label class="field">
+        <span>Contraseña</span>
+        <div class="password-row">
+          <input
+            formControlName="password"
+            type="password"
+            placeholder="Tu contraseña segura"
+            autocomplete="current-password"
+          />
+        </div>
+
+        <small *ngIf="password?.invalid && password?.touched" class="error"
+          >Mínimo 6 caracteres para tu seguridad.</small
+        >
+        <div>
+          <a class="link" href="#" aria-label="Recuperar contraseña">¿Olvidaste la contraseña?</a>
+        </div>
+      </label>
+
+      <button class="primary" type="submit" [disabled]="isSubmitting">
+        {{ isSubmitting ? 'Validando acceso...' : 'Inicia sesión' }}
+      </button>
+
+      <div *ngIf="message" [class.success]="isSuccess" [class.error]="!isSuccess" class="feedback">
+        {{ message }}
+      </div>
+    </form>
+  </div>
+</section>

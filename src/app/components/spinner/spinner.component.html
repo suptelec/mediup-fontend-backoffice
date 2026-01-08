@@ -1,0 +1,5 @@
+<div class="spinner-overlay" *ngIf="isLoading$ | async" role="status" aria-live="polite">
+  <div class="spinner-blocker" (click)="$event.stopPropagation()">
+    <div class="spinner" aria-hidden="true"></div>
+  </div>
+</div>

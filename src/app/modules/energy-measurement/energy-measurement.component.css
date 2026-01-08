@@ -1,0 +1,4 @@
+.energy-measurement { padding: 16px; }
+.measurements-table { width: 100%; border-collapse: collapse; }
+.measurements-table th, .measurements-table td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+.measurements-table th { background: #f2f2f2; }

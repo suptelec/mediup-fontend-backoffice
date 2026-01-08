@@ -1,0 +1,65 @@
+<div class="user-profile-container">
+  <div *ngIf="loading" class="loading">Cargando datos del usuario...</div>
+
+  <div *ngIf="error" class="error">{{ error }}</div>
+
+  <div *ngIf="userData && !loading">
+    <div class="user-menu">
+      <div class="user-menu-info">
+        <div class="user-avatar">
+          <span>{{ userData.name.charAt(0) }}{{ userData.lastName.charAt(0) }}</span>
+        </div>
+        <div class="user-menu-details">
+          <h3>{{ userData.fullName }}</h3>
+          <p>{{ userData.email }}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="user-profile">
+      <h2>Información del Perfil</h2>
+
+      <div class="user-info">
+        <div class="info-item">
+          <strong>Nombre completo:</strong>
+          <span>{{ userData.fullName }}</span>
+        </div>
+
+        <div class="info-item">
+          <strong>Email:</strong>
+          <span>{{ userData.email }}</span>
+        </div>
+
+        <div class="info-item">
+          <strong>Usuario:</strong>
+          <span>{{ userData.userName }}</span>
+        </div>
+
+        <div class="info-item">
+          <strong>Nombre:</strong>
+          <span>{{ userData.name }}</span>
+        </div>
+
+        <div class="info-item">
+          <strong>Apellido:</strong>
+          <span>{{ userData.lastName }}</span>
+        </div>
+
+        <div class="info-item">
+          <strong>ID:</strong>
+          <span>{{ userData.id }}</span>
+        </div>
+
+        <div class="info-item">
+          <strong>Creado por:</strong>
+          <span>{{ userData.createdBy }}</span>
+        </div>
+
+        <div class="info-item">
+          <strong>Fecha de creación:</strong>
+          <span>{{ userData.createdAt | date: 'dd/MM/yyyy HH:mm' }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

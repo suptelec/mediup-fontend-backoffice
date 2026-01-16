@@ -14,32 +14,100 @@
   <form class="transformer-form" [formGroup]="transformerForm" (ngSubmit)="submit()">
     <div class="form-grid">
       <label class="form-field">
-        <span>Nombre del transformador</span>
-        <input type="text" formControlName="name" placeholder="Ej. Transformador Central" />
-        <small *ngIf="transformerForm.get('name')?.touched && transformerForm.get('name')?.invalid">
-          El nombre es obligatorio.
+        <span>Serial</span>
+        <input type="text" formControlName="serial" placeholder="Ej. SRL-0001" />
+        <small *ngIf="transformerForm.get('serial')?.touched && transformerForm.get('serial')?.invalid">
+          El serial es obligatorio.
         </small>
       </label>
 
       <label class="form-field">
         <span>Código</span>
-        <input type="text" formControlName="code" placeholder="Ej. TR-001" />
-        <small *ngIf="transformerForm.get('code')?.touched && transformerForm.get('code')?.invalid">
+        <input type="text" formControlName="codigo" placeholder="Ej. TR-001" />
+        <small *ngIf="transformerForm.get('codigo')?.touched && transformerForm.get('codigo')?.invalid">
           El código es obligatorio.
         </small>
       </label>
 
       <label class="form-field">
-        <span>Capacidad (kVA)</span>
-        <input type="number" min="0" formControlName="capacityKva" placeholder="Ej. 250" />
-        <small *ngIf="transformerForm.get('capacityKva')?.touched && transformerForm.get('capacityKva')?.invalid">
-          La capacidad debe ser un valor positivo.
+        <span>Modelo</span>
+        <input type="text" formControlName="model" placeholder="Ej. TX-550" />
+        <small *ngIf="transformerForm.get('model')?.touched && transformerForm.get('model')?.invalid">
+          El modelo es obligatorio.
+        </small>
+      </label>
+
+      <label class="form-field">
+        <span>Marca</span>
+        <input type="text" formControlName="brand" placeholder="Ej. Siemens" />
+        <small *ngIf="transformerForm.get('brand')?.touched && transformerForm.get('brand')?.invalid">
+          La marca es obligatoria.
+        </small>
+      </label>
+
+      <label class="form-field">
+        <span>Clase</span>
+        <input type="text" formControlName="class" placeholder="Ej. Clase A" />
+        <small *ngIf="transformerForm.get('class')?.touched && transformerForm.get('class')?.invalid">
+          La clase es obligatoria.
+        </small>
+      </label>
+
+      <label class="form-field">
+        <span>Tipo</span>
+        <input type="number" min="0" formControlName="type" placeholder="Ej. 0" />
+        <small *ngIf="transformerForm.get('type')?.touched && transformerForm.get('type')?.invalid">
+          El tipo es obligatorio y debe ser un valor positivo.
+        </small>
+      </label>
+
+      <label class="form-field">
+        <span>Empresa eléctrica (ID)</span>
+        <input type="number" min="0" formControlName="electricCompanyId" placeholder="Ej. 1" />
+        <small *ngIf="transformerForm.get('electricCompanyId')?.touched && transformerForm.get('electricCompanyId')?.invalid">
+          La empresa eléctrica es obligatoria.
+        </small>
+      </label>
+
+      <label class="form-field">
+        <span>Corriente primaria</span>
+        <input type="number" min="0" formControlName="primaryCurrent" placeholder="Ej. 200" />
+      </label>
+
+      <label class="form-field">
+        <span>Corriente secundaria</span>
+        <input type="number" min="0" formControlName="secondaryCurrent" placeholder="Ej. 5" />
+      </label>
+
+      <label class="form-field">
+        <span>Voltaje primario</span>
+        <input type="number" min="0" formControlName="primaryVoltage" placeholder="Ej. 13200" />
+      </label>
+
+      <label class="form-field">
+        <span>Voltaje secundario</span>
+        <input type="number" min="0" formControlName="secondaryVoltage" placeholder="Ej. 240" />
+      </label>
+
+      <label class="form-field">
+        <span>Última calibración</span>
+        <input type="datetime-local" formControlName="lastCalibrationDate" />
+        <small *ngIf="transformerForm.get('lastCalibrationDate')?.touched && transformerForm.get('lastCalibrationDate')?.invalid">
+          La fecha de última calibración es obligatoria.
+        </small>
+      </label>
+
+      <label class="form-field">
+        <span>Próxima calibración</span>
+        <input type="datetime-local" formControlName="nextCalibrationDate" />
+        <small *ngIf="transformerForm.get('nextCalibrationDate')?.touched && transformerForm.get('nextCalibrationDate')?.invalid">
+          La fecha de próxima calibración es obligatoria.
         </small>
       </label>
 
       <label class="form-field full">
-        <span>Descripción</span>
-        <textarea rows="3" formControlName="description" placeholder="Detalles adicionales del transformador..."></textarea>
+        <span>URL de la imagen</span>
+        <input type="text" formControlName="urlPicture" placeholder="https://..." />
       </label>
     </div>
 

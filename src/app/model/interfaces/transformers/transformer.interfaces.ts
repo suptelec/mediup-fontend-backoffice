@@ -1,8 +1,18 @@
 export interface TransformerCreatePayload {
-  name: string;
-  code: string;
-  capacityKva?: number | null;
-  description?: string | null;
+  serial: string;
+  codigo: string;
+  model: string;
+  brand: string;
+  class: string;
+  lastCalibrationDate: string | null;
+  nextCalibrationDate: string | null;
+  urlPicture: string;
+  type: number;
+  primaryCurrent: number;
+  secondaryCurrent: number;
+  primaryVoltage: number;
+  secondaryVoltage: number;
+  electricCompanyId: number;
 }
 
 export interface TransformerCreateResponse {

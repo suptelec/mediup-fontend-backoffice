@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from '../guards/auth.guard';
 import { NoAuthGuard } from '../guards/no-auth.guard';
+import { DEFAULT_ROUTE } from '../app.constants';
 
 const routes: Routes = [
   {
@@ -20,11 +21,6 @@ const routes: Routes = [
     canActivate: [AuthGuard]
   },
   {
-    path: 'meters-map',
-    loadChildren: () => import('../modules/meters-map/meters-map.module').then((m) => m.MetersMapModule),
-    canActivate: [AuthGuard]
-  },
-  {
     path: 'reports',
     loadChildren: () => import('../modules/reports/reports.module').then((m) => m.ReportsModule),
     canActivate: [AuthGuard]
@@ -39,7 +35,7 @@ const routes: Routes = [
     loadChildren: () => import('../modules/file-upload/file-upload.module').then((m) => m.FileUploadModule),
     canActivate: [AuthGuard]
   },
-  { path: '', pathMatch: 'full', redirectTo: 'meters-map' },
+  { path: '', pathMatch: 'full', redirectTo: DEFAULT_ROUTE },
 ];
 
 @NgModule({

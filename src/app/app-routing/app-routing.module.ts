@@ -39,7 +39,12 @@ const routes: Routes = [
     loadChildren: () => import('../modules/file-upload/file-upload.module').then((m) => m.FileUploadModule),
     canActivate: [AuthGuard]
   },
-  { path: '', pathMatch: 'full', redirectTo: 'meters-map' },
+  {
+    path: 'dashboard',
+    loadComponent: () => import('../modules/dashboard/dashboard.component').then((m) => m.DashboardComponent),
+    canActivate: [AuthGuard]
+  },
+  { path: '', pathMatch: 'full', redirectTo: 'dashboard' },
 ];
 
 @NgModule({

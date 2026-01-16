@@ -1,0 +1,11 @@
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1.5rem;
+}
+
+.placeholder {
+  color: #6b7280;
+  font-size: 0.95rem;
+}

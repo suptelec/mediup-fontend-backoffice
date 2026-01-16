@@ -16,6 +16,6 @@ export class EnergyMeasurementService {
     const token = this.authService.getToken();
     const headers = token ? new HttpHeaders({ Authorization: `Bearer ${token}` }) : undefined;
     const options = headers ? { headers } : {};
-    return this.http.get<ApiResponse<Measurement[]>>(`${apiConfig.frontofficeBaseUrl}/api/EnergyMeasurementDownload`, options);
+    return this.http.get<ApiResponse<Measurement[]>>(`${apiConfig.backofficeBaseUrl}/api/EnergyMeasurementDownload`, options);
   }
 }

@@ -35,7 +35,7 @@ export class MeterViewDialogComponent implements OnInit {
     const headers = token ? new HttpHeaders({ Authorization: `Bearer ${token}` }) : new HttpHeaders();
 
     this.loading = true;
-    this.http.get<PaginatedResponse<EnergyMeasurement[]>>(`${apiConfig.frontofficeBaseUrl}/api/EnergyMeasurementDownload?${params}`, { headers })
+    this.http.get<PaginatedResponse<EnergyMeasurement[]>>(`${apiConfig.backofficeBaseUrl}/api/EnergyMeasurementDownload?${params}`, { headers })
       .subscribe({
         next: response => {
           try {

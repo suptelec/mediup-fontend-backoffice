@@ -8,7 +8,7 @@ import { ApiResponse } from 'src/app/model/interfaces/generics/apiResponse';
 
 @Injectable({ providedIn: 'root' })
 export class MetersMapService {
-  private readonly apiUrl = `${apiConfig.frontofficeBaseUrl}/api/LightMeter`;
+  private readonly apiUrl = `${apiConfig.backofficeBaseUrl}/api/LightMeter`;
 
   constructor(private readonly http: HttpClient, private readonly authService: AuthService) {}
 

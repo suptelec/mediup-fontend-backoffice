@@ -15,6 +15,11 @@ const routes: Routes = [
     canActivate: [AuthGuard]
   },
   {
+    path: 'transformers/create',
+    loadComponent: () => import('../modules/transformers/transformer-create.component').then((m) => m.TransformerCreateComponent),
+    canActivate: [AuthGuard]
+  },
+  {
     path: 'meters-map',
     loadChildren: () => import('../modules/meters-map/meters-map.module').then((m) => m.MetersMapModule),
     canActivate: [AuthGuard]

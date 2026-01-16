@@ -1,0 +1,148 @@
+.transformer-create {
+  max-width: 960px;
+  margin: 2rem auto;
+  padding: 0 1.5rem 2rem;
+}
+
+.transformer-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.transformer-header h2 {
+  margin: 0.5rem 0 0.25rem;
+  font-size: 2rem;
+  color: #1f2933;
+}
+
+.subtitle {
+  margin: 0;
+  color: #52606d;
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 700;
+  font-size: 0.75rem;
+  color: #4a5568;
+  margin: 0;
+}
+
+.endpoint-chip {
+  background: #f0f4ff;
+  border-radius: 12px;
+  padding: 0.75rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  font-size: 0.85rem;
+  color: #1a365d;
+  box-shadow: 0 4px 12px rgba(26, 54, 93, 0.08);
+}
+
+.endpoint-chip code {
+  font-size: 0.8rem;
+  color: #1d4ed8;
+}
+
+.transformer-form {
+  background: #fff;
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-weight: 600;
+  color: #1f2933;
+}
+
+.form-field input,
+.form-field textarea {
+  border: 1px solid #cbd2d9;
+  border-radius: 10px;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.form-field input:focus,
+.form-field textarea:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+}
+
+.form-field small {
+  color: #d64545;
+  font-weight: 500;
+}
+
+.form-field.full {
+  grid-column: 1 / -1;
+}
+
+.form-actions {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.form-actions button {
+  background: linear-gradient(135deg, #1976d2, #1565c0);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: 0.75rem 2rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.1s ease, box-shadow 0.2s ease;
+}
+
+.form-actions button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.form-actions button:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(25, 118, 210, 0.3);
+}
+
+.form-message {
+  margin-top: 1.5rem;
+  font-weight: 600;
+}
+
+.form-message.success {
+  color: #0f766e;
+}
+
+.form-message.error {
+  color: #dc2626;
+}
+
+@media (max-width: 720px) {
+  .transformer-header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .transformer-form {
+    padding: 1.5rem;
+  }
+}

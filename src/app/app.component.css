@@ -43,6 +43,7 @@
   display: flex;
   align-items: center;
   gap: 1rem;
+  flex-wrap: wrap;
 }
 
 .app-nav a {
@@ -102,6 +103,25 @@
   min-width: 200px;
   overflow: hidden;
   z-index: 1000;
+}
+
+.user-dropdown-summary {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding: 0.75rem 1rem;
+  background: #f8fafc;
+}
+
+.user-name {
+  font-weight: 700;
+  color: #1f2933;
+}
+
+.user-email {
+  font-size: 0.85rem;
+  color: #52606d;
+  word-break: break-all;
 }
 
 .dropdown-item {

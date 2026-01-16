@@ -1,0 +1,55 @@
+<div class="transformer-create">
+  <header class="transformer-header">
+    <div>
+      <p class="eyebrow">Gestión de transformadores</p>
+      <h2>Crear transformador</h2>
+      <p class="subtitle">Registra un nuevo transformador en el sistema.</p>
+    </div>
+    <div class="endpoint-chip">
+      <span>Endpoint</span>
+      <code>/api/LigtherTransformers</code>
+    </div>
+  </header>
+
+  <form class="transformer-form" [formGroup]="transformerForm" (ngSubmit)="submit()">
+    <div class="form-grid">
+      <label class="form-field">
+        <span>Nombre del transformador</span>
+        <input type="text" formControlName="name" placeholder="Ej. Transformador Central" />
+        <small *ngIf="transformerForm.get('name')?.touched && transformerForm.get('name')?.invalid">
+          El nombre es obligatorio.
+        </small>
+      </label>
+
+      <label class="form-field">
+        <span>Código</span>
+        <input type="text" formControlName="code" placeholder="Ej. TR-001" />
+        <small *ngIf="transformerForm.get('code')?.touched && transformerForm.get('code')?.invalid">
+          El código es obligatorio.
+        </small>
+      </label>
+
+      <label class="form-field">
+        <span>Capacidad (kVA)</span>
+        <input type="number" min="0" formControlName="capacityKva" placeholder="Ej. 250" />
+        <small *ngIf="transformerForm.get('capacityKva')?.touched && transformerForm.get('capacityKva')?.invalid">
+          La capacidad debe ser un valor positivo.
+        </small>
+      </label>
+
+      <label class="form-field full">
+        <span>Descripción</span>
+        <textarea rows="3" formControlName="description" placeholder="Detalles adicionales del transformador..."></textarea>
+      </label>
+    </div>
+
+    <div class="form-actions">
+      <button type="submit" [disabled]="isSubmitting">
+        {{ isSubmitting ? 'Guardando...' : 'Crear transformador' }}
+      </button>
+    </div>
+
+    <p class="form-message success" *ngIf="successMessage">{{ successMessage }}</p>
+    <p class="form-message error" *ngIf="errorMessage">{{ errorMessage }}</p>
+  </form>
+</div>

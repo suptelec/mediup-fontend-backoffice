@@ -10,7 +10,8 @@
       </div>
     </div>
     <nav class="app-nav">
-      <a routerLink="/meters-map" routerLinkActive="active">Mapa de medidores</a>
+      <a routerLink="/transformers/create" routerLinkActive="active">Crear transformador</a>
+      <a routerLink="/user-profile" routerLinkActive="active">Mi perfil</a>
 
       <div class="user-menu-container">
         <button class="user-menu-btn" (click)="toggleUserMenu()">
@@ -19,9 +20,18 @@
         </button>
 
         <div class="user-dropdown" *ngIf="showUserMenu" (click)="closeUserMenu()">
+          <div class="user-dropdown-summary">
+            <span class="user-name">{{ userData?.fullName || 'Usuario' }}</span>
+            <span class="user-email">{{ userData?.email || 'usuario@mediup.com' }}</span>
+          </div>
+          <div class="dropdown-divider"></div>
           <a routerLink="/user-profile" class="dropdown-item">
             <span class="dropdown-icon">👤</span>
-            Mi perfil
+            Ver información del usuario
+          </a>
+          <a routerLink="/transformers/create" class="dropdown-item">
+            <span class="dropdown-icon">⚡</span>
+            Crear transformador
           </a>
           <div class="dropdown-divider"></div>
           <button class="dropdown-item logout" (click)="logout()">

@@ -3,6 +3,7 @@ import { CanActivate, Router, UrlTree, ActivatedRouteSnapshot, RouterStateSnapsh
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { AuthService } from 'src/app/modules/auth/auth.service';
+import { DEFAULT_ROUTE_URL } from '../app.constants';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +16,7 @@ export class NoAuthGuard implements CanActivate {
     state: RouterStateSnapshot
   ): Observable<boolean | UrlTree> {
     return this.authService.isLoggedIn().pipe(
-      map((logged) => (logged ? this.router.parseUrl('/meters-map') : true))
+      map((logged) => (logged ? this.router.parseUrl(DEFAULT_ROUTE_URL) : true))
     );
   }
 }

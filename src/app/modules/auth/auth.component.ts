@@ -3,6 +3,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from './auth.service';
 import { LoginResponse } from 'src/app/model/interfaces/auth/login.interfaces';
+import { DEFAULT_ROUTE_URL } from 'src/app/app.constants';
 
 @Component({
   selector: 'app-auth-page',
@@ -55,7 +56,7 @@ export class AuthComponent {
     this.message = `Bienvenido! Redirigiendo...`;
 
     setTimeout(() => {
-      this.router.navigate(['/meters-map']);
+      this.router.navigate([DEFAULT_ROUTE_URL]);
     }, 1000);
   }
 

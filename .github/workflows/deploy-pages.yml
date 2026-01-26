@@ -1,0 +1,56 @@
+name: Deploy Angular to GitHub Pages
+
+on:
+  push:
+    branches: ["main"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout (descarga el repo)
+        uses: actions/checkout@v4
+
+      - name: Setup Node (instala Node en el runner)
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies (npm ci)
+        run: npm ci
+
+      - name: Build Angular (prod + base-href para Pages)
+        run: |
+          REPO_NAME="${{ github.event.repository.name }}"
+          npm run build -- --configuration production --base-href "/${REPO_NAME}/"
+
+      - name: SPA routing fallback (404.html)
+        run: |
+          cp "dist/medi-up-front/index.html" "dist/medi-up-front/404.html"
+
+      - name: Upload artifact (sube dist para Pages)
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist/medi-up-front
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
